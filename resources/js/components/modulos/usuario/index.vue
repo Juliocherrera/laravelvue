@@ -70,6 +70,55 @@
                   </div>
                 </div>
               </div>
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Bandeja de resultados</h3>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover table-head-fixed text-nowrap projects">
+                    <thead>
+                      <tr>
+                        <th>Fotografía</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Usuario</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <img src="" alt="">
+                        </td>
+                        <td>Diego Maradona</td>
+                        <td>diego@gmail.com</td>
+                        <td>d10s</td>
+                        <td>
+                          <span class="badge badge-success">Activo</span>
+                        </td>
+                        <td>
+                          <button class="btn btn-primary btn-sm">
+                            <i class="fas fa-folder"></i> Ver
+                          </button>
+                          <button class="btn btn-info btn-sm">
+                            <i class="fas fa-pencil-alt"></i> Editar
+                          </button>
+                          <button class="btn btn-success btn-sm">
+                            <i class="fas fa-key"></i> Permiso
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> Desactivar
+                          </button>
+                          <button class="btn btn-success btn-sm">
+                            <i class="fas fa-check"></i> Activar
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>

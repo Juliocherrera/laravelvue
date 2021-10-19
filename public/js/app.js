@@ -2424,6 +2424,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -40386,6 +40435,86 @@ var staticRenderFns = [
                 )
               ])
             ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card card-info" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h3", { staticClass: "card-title" }, [
+              _vm._v("Bandeja de resultados")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body table-responsive" }, [
+            _c(
+              "table",
+              {
+                staticClass:
+                  "table table-hover table-head-fixed text-nowrap projects"
+              },
+              [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", [_vm._v("Fotografía")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Nombre")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Correo")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Usuario")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Estado")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Acciones")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tbody", [
+                  _c("tr", [
+                    _c("td", [_c("img", { attrs: { src: "", alt: "" } })]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Diego Maradona")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("diego@gmail.com")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("d10s")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("span", { staticClass: "badge badge-success" }, [
+                        _vm._v("Activo")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+                        _c("i", { staticClass: "fas fa-folder" }),
+                        _vm._v(" Ver\n                        ")
+                      ]),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "btn btn-info btn-sm" }, [
+                        _c("i", { staticClass: "fas fa-pencil-alt" }),
+                        _vm._v(" Editar\n                        ")
+                      ]),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "btn btn-success btn-sm" }, [
+                        _c("i", { staticClass: "fas fa-key" }),
+                        _vm._v(" Permiso\n                        ")
+                      ]),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                        _c("i", { staticClass: "fas fa-trash" }),
+                        _vm._v(" Desactivar\n                        ")
+                      ]),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "btn btn-success btn-sm" }, [
+                        _c("i", { staticClass: "fas fa-check" }),
+                        _vm._v(" Activar\n                        ")
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
           ])
         ])
       ])
