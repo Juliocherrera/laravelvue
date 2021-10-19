@@ -30,7 +30,7 @@
                         <div class="form group row">
                           <label class="col-md-3 col-form-label" for="nombre">Nombre</label>
                           <div class="col-md-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" v-model="fillBsqUsuario.cNombre">
                           </div>
                         </div>
                       </div>
@@ -38,7 +38,7 @@
                         <div class="form group row">
                           <label class="col-md-3 col-form-label" for="usuario">Usuario</label>
                           <div class="col-md-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" v-model="fillBsqUsuario.cUsuario">
                           </div>
                         </div>
                       </div>
@@ -46,7 +46,7 @@
                         <div class="form group row">
                           <label class="col-md-3 col-form-label" for="correo">Correo Electronico</label>
                           <div class="col-md-9">
-                            <input type="email" class="form-control">
+                            <input type="email" class="form-control" v-model="fillBsqUsuario.cCorreo">
                           </div>
                         </div>
                       </div>
@@ -54,7 +54,14 @@
                         <div class="form group row">
                           <label class="col-md-3 col-form-label" for="estado">Estado</label>
                           <div class="col-md-9">
-                            <input type="text" class="form-control">
+                            <el-select v-model="fillBsqUsuario.cEstado" placeholder="Seleccione un estado" clearable>
+                              <el-option
+                                v-for="item in listEstados"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                              </el-option>
+                            </el-select>
                           </div>
                         </div>
                       </div>
@@ -65,7 +72,7 @@
                   <div class="row">
                     <div class="col-md-4 offset-4">
                       <button class="btn btn-flat btn-info btnWidth">Buscar</button>
-                      <button class="btn btn-flat btn-default btnWidth">Limpiar</button>
+                      <button class="btn btn-flat btn-default btnWidth" @click.prevent="limpiarCriteriosBsq">Limpiar</button>
                     </div>
                   </div>
                 </div>
@@ -142,7 +149,29 @@
 
 <script>
 export default {
-
+  data(){
+    return {
+      fillBsqUsuario: {
+        cNombre: '',
+        cUsuario: '',
+        cCorreo: '',
+        cEstado: ''
+      },
+      listUsuarios: [],
+      listEstados: [
+        {value: 'A', label: 'Activo'},
+        {value: 'I', label: 'Inactivo'}
+      ]
+    }
+  },
+    methods: {
+      limpiarCriteriosBsq(){
+        this.fillBsqUsuario.cNombre = '';
+        this.fillBsqUsuario.cUsuario = '';
+        this.fillBsqUsuario.cCorreo = '';
+        this.fillBsqUsuario.cEstado = '';
+      }
+    },
 }
 </script>
 
