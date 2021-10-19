@@ -98,21 +98,21 @@
                           <span class="badge badge-success">Activo</span>
                         </td>
                         <td>
-                          <button class="btn btn-primary btn-sm">
-                            <i class="fas fa-folder"></i> Ver
-                          </button>
-                          <button class="btn btn-info btn-sm">
-                            <i class="fas fa-pencil-alt"></i> Editar
-                          </button>
-                          <button class="btn btn-success btn-sm">
-                            <i class="fas fa-key"></i> Permiso
-                          </button>
-                          <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash"></i> Desactivar
-                          </button>
-                          <button class="btn btn-success btn-sm">
-                            <i class="fas fa-check"></i> Activar
-                          </button>
+                          <router-link class="btn btn-primary btn-sm" :to="'/'">
+                             <i class="fas fa-folder"></i> Ver
+                          </router-link>
+                          <router-link class="btn btn-info btn-sm" :to="'/'">
+                             <i class="fas fa-pencil-alt"></i> Editar
+                          </router-link>
+                          <router-link class="btn btn-success btn-sm" :to="'/'">
+                             <i class="fas fa-key"></i> Permiso
+                          </router-link>
+                          <router-link class="btn btn-danger btn-sm" :to="'/'">
+                             <i class="fas fa-trash"></i> Desactivar
+                          </router-link>
+                          <router-link class="btn btn-success btn-sm" :to="'/'">
+                             <i class="fas fa-check"></i> Activar
+                          </router-link>
                         </td>
                       </tr>
                     </tbody>
