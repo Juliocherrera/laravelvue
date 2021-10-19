@@ -71,8 +71,8 @@
                 <div class="card-footer">
                   <div class="row">
                     <div class="col-md-4 offset-4">
-                      <button class="btn btn-flat btn-info btnWidth" @click.prevent="getListarUsuarios">Buscar</button>
-                      <button class="btn btn-flat btn-default btnWidth" @click.prevent="limpiarCriteriosBsq">Limpiar</button>
+                      <button type="button" class="btn btn-flat btn-info btnWidth" @click.prevent="getListarUsuarios">Buscar</button>
+                      <button type="button" class="btn btn-flat btn-default btnWidth" @click.prevent="limpiarCriteriosBsq">Limpiar</button>
                     </div>
                   </div>
                 </div>

@@ -104510,6 +104510,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-flat btn-info btnWidth",
+                        attrs: { type: "button" },
                         on: {
                           click: function($event) {
                             $event.preventDefault()
@@ -104524,6 +104525,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-flat btn-default btnWidth",
+                        attrs: { type: "button" },
                         on: {
                           click: function($event) {
                             $event.preventDefault()

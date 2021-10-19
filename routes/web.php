@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/administracion/usuario/getListarUsuarios', 'App\Http\Controllers\Administracion\UsersController@getListarUsuarios');
 Route::get('/{optional?}', function () {
     return view('app');
-})->name('basepath');
+})->name('basepath')
+  ->where('optional', '.*');
 
-Route::get('/administracion/usuario/getListarUsuarios', 'Administracion\UsersController@getListarUsuarios');
+
