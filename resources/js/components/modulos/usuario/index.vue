@@ -117,6 +117,19 @@
                       </tr>
                     </tbody>
                   </table>
+                  <div class="card-footer clearfix">
+                    <ul class="pagination pagination-sm m-0 float-right">
+                      <li class="page-item">
+                        <a href="#" class="page-link">Anterios</a>
+                      </li>
+                      <li class="page-item active">
+                        <a href="#" class="page-link">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a href="#" class="page-link">Posterior</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

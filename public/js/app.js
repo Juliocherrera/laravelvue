@@ -2473,6 +2473,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -40399,7 +40412,9 @@ var render = function() {
                       ])
                     ])
                   ]
-                )
+                ),
+                _vm._v(" "),
+                _vm._m(6)
               ])
             ])
           ])
@@ -40573,6 +40588,32 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("td", [
       _c("span", { staticClass: "badge badge-success" }, [_vm._v("Activo")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer clearfix" }, [
+      _c("ul", { staticClass: "pagination pagination-sm m-0 float-right" }, [
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("Anterios")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item active" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("1")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("Posterior")
+          ])
+        ])
+      ])
     ])
   }
 ]
