@@ -1,0 +1,15 @@
+--- migrations ---
+1.- php artisan make:migration create_files_table - creada
+2.- php artisan make:migration create_users_table - creada
+3.- php artisan make:migration create_password_resets_table - creada
+4.- php artisan make:migration create_permissions_table - creada
+5.- php artisan make:migration create_roles_table - creada
+6.- php artisan make:migration create_users_permissions_table - creada
+7.- php artisan make:migration create_users_roles_table - creada
+8.- php artisan make:migration create_roles_permissions_table - creada
+9.- php artisan make:migration create_messages_table - creada
+10.-php artisan make:migration create_categories_table - creada
+11.-php artisan make:migration create_products_table - creada
+12.-php artisan make:migration create_customers_table - creada
+13.-php artisan make:migration create_orders_table - creada
+14.-php artisan make:migration create_details_orders_table - creada
