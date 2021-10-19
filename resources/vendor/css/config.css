@@ -15,3 +15,7 @@
 .slide-fade-leave-active {
     transition: all 0.2s ease;
 }
+
+.btnWidth {
+    width: 49% !important;
+}

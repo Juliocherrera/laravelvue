@@ -2369,6 +2369,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -40196,7 +40251,9 @@ var render = function() {
             ],
             1
           )
-        ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
       ])
     ])
   ])
@@ -40210,6 +40267,126 @@ var staticRenderFns = [
       _c("div", { staticClass: "row mb-2" }, [
         _c("div", { staticClass: "col-sm-6" }, [
           _c("h1", { staticClass: "m-0 text-dark" }, [_vm._v("Usuario")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "card card-info" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h3", { staticClass: "card-title" }, [
+              _vm._v("Criterios de Búsqueda")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("form", { attrs: { role: "form", action: "" } }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form group row" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-md-3 col-form-label",
+                        attrs: { for: "nombre" }
+                      },
+                      [_vm._v("Nombre")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-9" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "text" }
+                      })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form group row" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-md-3 col-form-label",
+                        attrs: { for: "usuario" }
+                      },
+                      [_vm._v("Usuario")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-9" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "text" }
+                      })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 mt-3" }, [
+                  _c("div", { staticClass: "form group row" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-md-3 col-form-label",
+                        attrs: { for: "correo" }
+                      },
+                      [_vm._v("Correo Electronico")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-9" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "email" }
+                      })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 mt-3" }, [
+                  _c("div", { staticClass: "form group row" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-md-3 col-form-label",
+                        attrs: { for: "estado" }
+                      },
+                      [_vm._v("Estado")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-9" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "text" }
+                      })
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-footer" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-4 offset-4" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn btn-flat btn-info btnWidth" },
+                  [_vm._v("Buscar")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-flat btn-default btnWidth" },
+                  [_vm._v("Limpiar")]
+                )
+              ])
+            ])
+          ])
         ])
       ])
     ])
