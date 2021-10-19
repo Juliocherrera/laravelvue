@@ -71,7 +71,7 @@
                 <div class="card-footer">
                   <div class="row">
                     <div class="col-md-4 offset-4">
-                      <button class="btn btn-flat btn-info btnWidth">Buscar</button>
+                      <button class="btn btn-flat btn-info btnWidth" @click.prevent="getListarUsuarios">Buscar</button>
                       <button class="btn btn-flat btn-default btnWidth" @click.prevent="limpiarCriteriosBsq">Limpiar</button>
                     </div>
                   </div>
@@ -170,6 +170,22 @@ export default {
         this.fillBsqUsuario.cUsuario = '';
         this.fillBsqUsuario.cCorreo = '';
         this.fillBsqUsuario.cEstado = '';
+      },
+      limpiarBandejaUsuarios(){
+        this.listUsuarios = [];
+      },
+      getListarUsuarios(){
+        var url = '/administracion/usuario/getListarUsuarios'
+        axios.get(url, {
+          params: {
+            'cNombre': this.fillBsqUsuario.cNombre,
+            'cUsuario': this.fillBsqUsuario.cUsuario,
+            'cCorreo': this.fillBsqUsuario.cCorreo,
+            'cEstado': this.fillBsqUsuario.cEstado,
+          }
+        }).then(response => {
+          console.log(response.data);
+        })
       }
     },
 }

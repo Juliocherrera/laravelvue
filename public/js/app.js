@@ -4187,6 +4187,22 @@ __webpack_require__.r(__webpack_exports__);
       this.fillBsqUsuario.cUsuario = '';
       this.fillBsqUsuario.cCorreo = '';
       this.fillBsqUsuario.cEstado = '';
+    },
+    limpiarBandejaUsuarios: function limpiarBandejaUsuarios() {
+      this.listUsuarios = [];
+    },
+    getListarUsuarios: function getListarUsuarios() {
+      var url = '/administracion/usuario/getListarUsuarios';
+      axios.get(url, {
+        params: {
+          'cNombre': this.fillBsqUsuario.cNombre,
+          'cUsuario': this.fillBsqUsuario.cUsuario,
+          'cCorreo': this.fillBsqUsuario.cCorreo,
+          'cEstado': this.fillBsqUsuario.cEstado
+        }
+      }).then(function (response) {
+        console.log(response.data);
+      });
     }
   }
 });
@@ -104492,7 +104508,15 @@ var render = function() {
                   _c("div", { staticClass: "col-md-4 offset-4" }, [
                     _c(
                       "button",
-                      { staticClass: "btn btn-flat btn-info btnWidth" },
+                      {
+                        staticClass: "btn btn-flat btn-info btnWidth",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.getListarUsuarios.apply(null, arguments)
+                          }
+                        }
+                      },
                       [_vm._v("Buscar")]
                     ),
                     _vm._v(" "),
