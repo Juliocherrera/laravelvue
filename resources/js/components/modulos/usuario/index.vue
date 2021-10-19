@@ -8,7 +8,19 @@
          
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
+      <div class="content container-fluid">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-tools">
+              <router-link class="btn btn-info btn-sm" :to="'/'">
+                <i class="fas fa-plus-square text-white"></i> Nuevo Usuario
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
 </template>
 
 <script>

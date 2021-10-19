@@ -1,4 +1,4 @@
---- migrations ---
+--- migrations create ---
 1.- php artisan make:migration create_files_table - creada
 2.- php artisan make:migration create_users_table - creada
 3.- php artisan make:migration create_password_resets_table - creada
@@ -13,3 +13,6 @@
 12.-php artisan make:migration create_customers_table - creada
 13.-php artisan make:migration create_orders_table - creada
 14.-php artisan make:migration create_details_orders_table - creada
+
+--- migrations execute ---
+php artisan migrate
