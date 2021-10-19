@@ -12,7 +12,7 @@
       <router-view></router-view>
     </transition>
   </div>
-  <!-- /.content-wrapper -->
+  <!-- /.Contenido principal -->
  <Footer></Footer>
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
