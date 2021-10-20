@@ -4251,6 +4251,8 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         //console.log(response.data);
+        _this.inicializarPaginacion();
+
         _this.listUsuarios = response.data;
       });
     },
@@ -5296,7 +5298,8 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
     path: '/usuario',
     component: __webpack_require__(/*! ./components/modulos/usuario/index */ "./resources/js/components/modulos/usuario/index.vue")["default"]
   }],
-  mode: 'history'
+  mode: 'history',
+  linkExactActiveClass: 'active'
 }));
 
 /***/ }),
@@ -104417,6 +104420,24 @@ var render = function() {
                             attrs: { type: "text" },
                             domProps: { value: _vm.fillBsqUsuario.cNombre },
                             on: {
+                              keyup: function($event) {
+                                if (
+                                  !$event.type.indexOf("key") &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                return _vm.getListarUsuarios.apply(
+                                  null,
+                                  arguments
+                                )
+                              },
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
@@ -104458,6 +104479,24 @@ var render = function() {
                             attrs: { type: "text" },
                             domProps: { value: _vm.fillBsqUsuario.cUsuario },
                             on: {
+                              keyup: function($event) {
+                                if (
+                                  !$event.type.indexOf("key") &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                return _vm.getListarUsuarios.apply(
+                                  null,
+                                  arguments
+                                )
+                              },
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
@@ -104499,6 +104538,24 @@ var render = function() {
                             attrs: { type: "email" },
                             domProps: { value: _vm.fillBsqUsuario.cCorreo },
                             on: {
+                              keyup: function($event) {
+                                if (
+                                  !$event.type.indexOf("key") &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                return _vm.getListarUsuarios.apply(
+                                  null,
+                                  arguments
+                                )
+                              },
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return

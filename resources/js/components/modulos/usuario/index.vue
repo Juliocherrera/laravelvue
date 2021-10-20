@@ -30,7 +30,7 @@
                         <div class="form group row">
                           <label class="col-md-3 col-form-label" for="nombre">Nombre</label>
                           <div class="col-md-9">
-                            <input type="text" class="form-control" v-model="fillBsqUsuario.cNombre">
+                            <input type="text" class="form-control" v-model="fillBsqUsuario.cNombre" @keyup.enter="getListarUsuarios">
                           </div>
                         </div>
                       </div>
@@ -38,7 +38,7 @@
                         <div class="form group row">
                           <label class="col-md-3 col-form-label" for="usuario">Usuario</label>
                           <div class="col-md-9">
-                            <input type="text" class="form-control" v-model="fillBsqUsuario.cUsuario">
+                            <input type="text" class="form-control" v-model="fillBsqUsuario.cUsuario" @keyup.enter="getListarUsuarios">
                           </div>
                         </div>
                       </div>
@@ -46,7 +46,7 @@
                         <div class="form group row">
                           <label class="col-md-3 col-form-label" for="correo">Correo Electronico</label>
                           <div class="col-md-9">
-                            <input type="email" class="form-control" v-model="fillBsqUsuario.cCorreo">
+                            <input type="email" class="form-control" v-model="fillBsqUsuario.cCorreo" @keyup.enter="getListarUsuarios">
                           </div>
                         </div>
                       </div>
@@ -231,6 +231,7 @@ export default {
           }
         }).then(response => {
           //console.log(response.data);
+          this.inicializarPaginacion();
           this.listUsuarios = response.data;
         })
       },

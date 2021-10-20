@@ -15,5 +15,6 @@ export default new Router({
         { path: '/rol', component: require('./components/modulos/rol/index').default },
         { path: '/usuario', component: require('./components/modulos/usuario/index').default },
     ],
-    mode: 'history'
+    mode: 'history',
+    linkExactActiveClass: 'active'
 })
