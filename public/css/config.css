@@ -31,3 +31,7 @@
 .user-block {
     list-style: none !important;
 }
+
+.msgError{
+    padding: 5px !important;
+}

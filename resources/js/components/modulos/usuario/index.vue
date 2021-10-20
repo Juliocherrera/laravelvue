@@ -12,7 +12,7 @@
         <div class="card">
           <div class="card-header">
             <div class="card-tools">
-              <router-link class="btn btn-info btn-sm" :to="'/'">
+              <router-link class="btn btn-info btn-sm" :to="'/usuario/create'">
                 <i class="fas fa-plus-square text-white"></i> Nuevo Usuario
               </router-link>
             </div>

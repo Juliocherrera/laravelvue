@@ -14,6 +14,7 @@ export default new Router({
         { path: '/reporte', component: require('./components/modulos/reporte/index').default },
         { path: '/rol', component: require('./components/modulos/rol/index').default },
         { path: '/usuario', component: require('./components/modulos/usuario/index').default },
+        { path: '/usuario/create', component: require('./components/modulos/usuario/create').default },
     ],
     mode: 'history',
     linkExactActiveClass: 'active'

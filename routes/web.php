@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/administracion/usuario/getListarUsuarios', 'App\Http\Controllers\Administracion\UsersController@getListarUsuarios');
+Route::post('/archivo/setRegistrarArchivo', 'App\Http\Controllers\FilesController@setRegistrarArchivo');
+
 Route::get('/{optional?}', function () {
     return view('app');
 })->name('basepath')
