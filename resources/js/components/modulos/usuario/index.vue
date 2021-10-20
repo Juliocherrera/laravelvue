@@ -127,13 +127,13 @@
                   <div class="card-footer clearfix">
                     <ul class="pagination pagination-sm m-0 float-right">
                       <li class="page-item">
-                        <a href="#" class="page-link">Anterios</a>
+                        <a href="#" class="page-link">Anterior</a>
                       </li>
                       <li class="page-item active">
                         <a href="#" class="page-link">1</a>
                       </li>
                       <li class="page-item">
-                        <a href="#" class="page-link">Posterior</a>
+                        <a href="#" class="page-link">Siguiente</a>
                       </li>
                     </ul>
                   </div>

@@ -104718,7 +104718,7 @@ var staticRenderFns = [
       _c("ul", { staticClass: "pagination pagination-sm m-0 float-right" }, [
         _c("li", { staticClass: "page-item" }, [
           _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("Anterios")
+            _vm._v("Anterior")
           ])
         ]),
         _vm._v(" "),
@@ -104730,7 +104730,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("li", { staticClass: "page-item" }, [
           _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("Posterior")
+            _vm._v("Siguiente")
           ])
         ])
       ])

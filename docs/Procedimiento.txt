@@ -1,0 +1,19 @@
+BEGIN
+    SELECT usuario,id,
+    CONCAT_WS('', usuario.firstname, usuario.secondname) AS fullname,
+    usuario.firstname,
+    usuario.secondname,
+    usuario.lastname,
+    usuario.username,
+    IFNULL(usuario.email, '') AS email,
+    CASE IFNULL(usuario.state, '') WHEN 'A' THEN 'ACTIVO'
+                                            ELSE 'INACTIVO'
+                                            END state_alias,
+    IFNULL(usuario.state, '') AS state
+    FROM users usuario
+    WHERE CONCAT_WS('', usuario.firstname, usuario.secondname, usuario.lastname) LIKE CONCAT('%', cnombre, '%')
+    AND CONCAT_WS('', usuario.username) LIKE CONCAT('%', cusuario, '%')
+    AND CONCAT_WS('', usuario.email) LIKE CONCAT('%', ccorreo, '%')
+    AND (usuario.state = cestado OR cestado = '')
+    ORDER BY usuario.id DESC;
+END
