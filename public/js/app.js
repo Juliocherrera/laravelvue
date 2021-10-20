@@ -4162,6 +4162,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4192,6 +4198,8 @@ __webpack_require__.r(__webpack_exports__);
       this.listUsuarios = [];
     },
     getListarUsuarios: function getListarUsuarios() {
+      var _this = this;
+
       var url = '/administracion/usuario/getListarUsuarios';
       axios.get(url, {
         params: {
@@ -4201,7 +4209,8 @@ __webpack_require__.r(__webpack_exports__);
           'cEstado': this.fillBsqUsuario.cEstado
         }
       }).then(function (response) {
-        console.log(response.data);
+        //console.log(response.data);
+        _this.listUsuarios = response.data;
       });
     }
   }
@@ -104556,89 +104565,123 @@ var render = function() {
                   [
                     _vm._m(3),
                     _vm._v(" "),
-                    _c("tbody", [
-                      _c("tr", [
-                        _vm._m(4),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Diego Maradona")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("diego@gmail.com")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("d10s")]),
-                        _vm._v(" "),
-                        _vm._m(5),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-primary btn-sm",
-                                attrs: { to: "/" }
-                              },
-                              [
-                                _c("i", { staticClass: "fas fa-folder" }),
-                                _vm._v(" Ver\n                        ")
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-info btn-sm",
-                                attrs: { to: "/" }
-                              },
-                              [
-                                _c("i", { staticClass: "fas fa-pencil-alt" }),
-                                _vm._v(" Editar\n                        ")
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-success btn-sm",
-                                attrs: { to: "/" }
-                              },
-                              [
-                                _c("i", { staticClass: "fas fa-key" }),
-                                _vm._v(" Permiso\n                        ")
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-danger btn-sm",
-                                attrs: { to: "/" }
-                              },
-                              [
-                                _c("i", { staticClass: "fas fa-trash" }),
-                                _vm._v(" Desactivar\n                        ")
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-success btn-sm",
-                                attrs: { to: "/" }
-                              },
-                              [
-                                _c("i", { staticClass: "fas fa-check" }),
-                                _vm._v(" Activar\n                        ")
-                              ]
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ])
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.listUsuarios, function(item, index) {
+                        return _c("tr", { key: index, staticClass: "letraF" }, [
+                          _vm._m(4, true),
+                          _vm._v(" "),
+                          _c("td", {
+                            domProps: { textContent: _vm._s(item.fullname) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            domProps: { textContent: _vm._s(item.email) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            domProps: { textContent: _vm._s(item.username) }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            [
+                              item.state == "A"
+                                ? [
+                                    _c("span", {
+                                      staticClass: "badge badge-success",
+                                      domProps: {
+                                        textContent: _vm._s(item.state_alias)
+                                      }
+                                    })
+                                  ]
+                                : [
+                                    _c("span", {
+                                      staticClass: "badge badge-danger",
+                                      domProps: {
+                                        textContent: _vm._s(item.state_alias)
+                                      }
+                                    })
+                                  ]
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "btn btn-primary btn-sm",
+                                  attrs: { to: "/" }
+                                },
+                                [
+                                  _c("i", { staticClass: "fas fa-folder" }),
+                                  _vm._v(" Ver\n                        ")
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "btn btn-info btn-sm",
+                                  attrs: { to: "/" }
+                                },
+                                [
+                                  _c("i", { staticClass: "fas fa-pencil-alt" }),
+                                  _vm._v(" Editar\n                        ")
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "btn btn-success btn-sm",
+                                  attrs: { to: "/" }
+                                },
+                                [
+                                  _c("i", { staticClass: "fas fa-key" }),
+                                  _vm._v(" Permiso\n                        ")
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "btn btn-danger btn-sm",
+                                  attrs: { to: "/" }
+                                },
+                                [
+                                  _c("i", { staticClass: "fas fa-trash" }),
+                                  _vm._v(
+                                    " Desactivar\n                        "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "btn btn-success btn-sm",
+                                  attrs: { to: "/" }
+                                },
+                                [
+                                  _c("i", { staticClass: "fas fa-check" }),
+                                  _vm._v(" Activar\n                        ")
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      }),
+                      0
+                    )
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(6)
+                _vm._m(5)
               ])
             ])
           ])
@@ -104701,14 +104744,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("td", [_c("img", { attrs: { src: "", alt: "" } })])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("span", { staticClass: "badge badge-success" }, [_vm._v("Activo")])
-    ])
   },
   function() {
     var _vm = this

@@ -94,15 +94,21 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr class="letraF" v-for="(item, index) in listUsuarios" :key="index">
                         <td>
                           <img src="" alt="">
                         </td>
-                        <td>Diego Maradona</td>
-                        <td>diego@gmail.com</td>
-                        <td>d10s</td>
+                        <td v-text="item.fullname"></td>
+                        <td v-text="item.email"></td>
+                        <td v-text="item.username"></td>
                         <td>
-                          <span class="badge badge-success">Activo</span>
+                          <template v-if="item.state == 'A'">
+                            <span class="badge badge-success" v-text="item.state_alias"></span>
+                          </template>
+                          <template v-else>
+                            <span class="badge badge-danger" v-text="item.state_alias"></span>
+                          </template>
+                          
                         </td>
                         <td>
                           <router-link class="btn btn-primary btn-sm" :to="'/'">
@@ -184,7 +190,8 @@ export default {
             'cEstado': this.fillBsqUsuario.cEstado,
           }
         }).then(response => {
-          console.log(response.data);
+          //console.log(response.data);
+          this.listUsuarios = response.data;
         })
       }
     },
