@@ -82,6 +82,7 @@
                   <h3 class="card-title">Bandeja de resultados</h3>
                 </div>
                 <div class="card-body table-responsive">
+                  <template v-if="listarUsuariosPaginated.length">
                   <table class="table table-hover table-head-fixed text-nowrap projects">
                     <thead>
                       <tr>
@@ -94,9 +95,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="letraF" v-for="(item, index) in listUsuarios" :key="index">
+                      <tr class="letraF" v-for="(item, index) in listarUsuariosPaginated" :key="index">
                         <td>
-                          <img src="" alt="">
+                          <li class="user-block">
+                            <img src="/img/avatar.png" alt="item.username" class="profile-avatar-img img-fluid img-circle">
+                          </li>
                         </td>
                         <td v-text="item.fullname"></td>
                         <td v-text="item.email"></td>
@@ -132,17 +135,24 @@
                   </table>
                   <div class="card-footer clearfix">
                     <ul class="pagination pagination-sm m-0 float-right">
-                      <li class="page-item">
-                        <a href="#" class="page-link">Anterior</a>
+                      <li class="page-item" v-if="pageNumber > 0">
+                        <a href="#" class="page-link" @click.prevent="prevPage">Anterior</a>
                       </li>
-                      <li class="page-item active">
-                        <a href="#" class="page-link">1</a>
+                      <li class="page-item" v-for="(page, index) in pageList" :key="index"
+                      :class="[page == pageNumber ? 'active' : '']">
+                        <a href="#" class="page-link" @click.prevent="selectPage(page)">{{ page+1 }}</a>
                       </li>
-                      <li class="page-item">
-                        <a href="#" class="page-link">Siguiente</a>
+                      <li class="page-item" v-if="pageNumber < pageCount - 1">
+                        <a href="#" class="page-link" @click.prevent="nextPage">Siguiente</a>
                       </li>
                     </ul>
                   </div>
+                  </template>
+                                <template v-else>
+                                    <div class="callout callout-info">
+                                        <h5>No se encontraron resultados...</h5>
+                                    </div>
+                                </template>
                 </div>
               </div>
             </div>
@@ -167,9 +177,39 @@ export default {
       listEstados: [
         {value: 'A', label: 'Activo'},
         {value: 'I', label: 'Inactivo'}
-      ]
+      ],
+      pageNumber: 0,
+      perPage: 5
     }
   },
+    computed: {
+      // Obtener el número de páginas
+      pageCount() {
+        let a = this.listUsuarios.length,
+            b = this.perPage;
+            return Math.ceil(a / b);
+        },
+        // con este metodo mostrara los registros paginados
+        listarUsuariosPaginated(){
+          let inicio = this.pageNumber * this.perPage,
+              fin = inicio + this.perPage;
+              return this.listUsuarios.slice(inicio, fin);
+        },
+        // metodo para mostrar el numero de la pagina
+        pageList(){
+          let a = this.listUsuarios.length,
+            b = this.perPage;
+            let pageCount = Math.ceil(a / b);
+            let count = 0,
+            pagesArray = [];
+
+            while (count < pageCount){
+              pagesArray.push(count);
+              count++;
+            }
+            return pagesArray;
+        }
+    },
     methods: {
       limpiarCriteriosBsq(){
         this.fillBsqUsuario.cNombre = '';
@@ -193,6 +233,18 @@ export default {
           //console.log(response.data);
           this.listUsuarios = response.data;
         })
+      },
+      nextPage(){
+        this.pageNumber++;
+      },
+      prevPage(){
+        this.pageNumber--;
+      },
+      selectPage(){
+        this.pageNumber = page;
+      },
+      inicializarPaginacion(){
+                this.pageNumber = 0;
       }
     },
 }

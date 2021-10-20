@@ -27,3 +27,7 @@
 .letraF {
     font-size: 12px !important;
 }
+
+.user-block {
+    list-style: none !important;
+}

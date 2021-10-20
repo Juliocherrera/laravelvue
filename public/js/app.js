@@ -4168,6 +4168,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4184,8 +4194,39 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         value: 'I',
         label: 'Inactivo'
-      }]
+      }],
+      pageNumber: 0,
+      perPage: 5
     };
+  },
+  computed: {
+    // Obtener el número de páginas
+    pageCount: function pageCount() {
+      var a = this.listUsuarios.length,
+          b = this.perPage;
+      return Math.ceil(a / b);
+    },
+    // con este metodo mostrara los registros paginados
+    listarUsuariosPaginated: function listarUsuariosPaginated() {
+      var inicio = this.pageNumber * this.perPage,
+          fin = inicio + this.perPage;
+      return this.listUsuarios.slice(inicio, fin);
+    },
+    // metodo para mostrar el numero de la pagina
+    pageList: function pageList() {
+      var a = this.listUsuarios.length,
+          b = this.perPage;
+      var pageCount = Math.ceil(a / b);
+      var count = 0,
+          pagesArray = [];
+
+      while (count < pageCount) {
+        pagesArray.push(count);
+        count++;
+      }
+
+      return pagesArray;
+    }
   },
   methods: {
     limpiarCriteriosBsq: function limpiarCriteriosBsq() {
@@ -4212,6 +4253,18 @@ __webpack_require__.r(__webpack_exports__);
         //console.log(response.data);
         _this.listUsuarios = response.data;
       });
+    },
+    nextPage: function nextPage() {
+      this.pageNumber++;
+    },
+    prevPage: function prevPage() {
+      this.pageNumber--;
+    },
+    selectPage: function selectPage() {
+      this.pageNumber = page;
+    },
+    inicializarPaginacion: function inicializarPaginacion() {
+      this.pageNumber = 0;
     }
   }
 });
@@ -104555,134 +104608,267 @@ var render = function() {
             _c("div", { staticClass: "card card-info" }, [
               _vm._m(2),
               _vm._v(" "),
-              _c("div", { staticClass: "card-body table-responsive" }, [
-                _c(
-                  "table",
-                  {
-                    staticClass:
-                      "table table-hover table-head-fixed text-nowrap projects"
-                  },
-                  [
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.listUsuarios, function(item, index) {
-                        return _c("tr", { key: index, staticClass: "letraF" }, [
-                          _vm._m(4, true),
-                          _vm._v(" "),
-                          _c("td", {
-                            domProps: { textContent: _vm._s(item.fullname) }
-                          }),
-                          _vm._v(" "),
-                          _c("td", {
-                            domProps: { textContent: _vm._s(item.email) }
-                          }),
-                          _vm._v(" "),
-                          _c("td", {
-                            domProps: { textContent: _vm._s(item.username) }
-                          }),
-                          _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "card-body table-responsive" },
+                [
+                  _vm.listarUsuariosPaginated.length
+                    ? [
+                        _c(
+                          "table",
+                          {
+                            staticClass:
+                              "table table-hover table-head-fixed text-nowrap projects"
+                          },
+                          [
+                            _vm._m(3),
+                            _vm._v(" "),
+                            _c(
+                              "tbody",
+                              _vm._l(_vm.listarUsuariosPaginated, function(
+                                item,
+                                index
+                              ) {
+                                return _c(
+                                  "tr",
+                                  { key: index, staticClass: "letraF" },
+                                  [
+                                    _vm._m(4, true),
+                                    _vm._v(" "),
+                                    _c("td", {
+                                      domProps: {
+                                        textContent: _vm._s(item.fullname)
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("td", {
+                                      domProps: {
+                                        textContent: _vm._s(item.email)
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("td", {
+                                      domProps: {
+                                        textContent: _vm._s(item.username)
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      [
+                                        item.state == "A"
+                                          ? [
+                                              _c("span", {
+                                                staticClass:
+                                                  "badge badge-success",
+                                                domProps: {
+                                                  textContent: _vm._s(
+                                                    item.state_alias
+                                                  )
+                                                }
+                                              })
+                                            ]
+                                          : [
+                                              _c("span", {
+                                                staticClass:
+                                                  "badge badge-danger",
+                                                domProps: {
+                                                  textContent: _vm._s(
+                                                    item.state_alias
+                                                  )
+                                                }
+                                              })
+                                            ]
+                                      ],
+                                      2
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass:
+                                              "btn btn-primary btn-sm",
+                                            attrs: { to: "/" }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fas fa-folder"
+                                            }),
+                                            _vm._v(
+                                              " Ver\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass: "btn btn-info btn-sm",
+                                            attrs: { to: "/" }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fas fa-pencil-alt"
+                                            }),
+                                            _vm._v(
+                                              " Editar\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass:
+                                              "btn btn-success btn-sm",
+                                            attrs: { to: "/" }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fas fa-key"
+                                            }),
+                                            _vm._v(
+                                              " Permiso\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass:
+                                              "btn btn-danger btn-sm",
+                                            attrs: { to: "/" }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fas fa-trash"
+                                            }),
+                                            _vm._v(
+                                              " Desactivar\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass:
+                                              "btn btn-success btn-sm",
+                                            attrs: { to: "/" }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fas fa-check"
+                                            }),
+                                            _vm._v(
+                                              " Activar\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                )
+                              }),
+                              0
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-footer clearfix" }, [
                           _c(
-                            "td",
+                            "ul",
+                            {
+                              staticClass:
+                                "pagination pagination-sm m-0 float-right"
+                            },
                             [
-                              item.state == "A"
-                                ? [
-                                    _c("span", {
-                                      staticClass: "badge badge-success",
-                                      domProps: {
-                                        textContent: _vm._s(item.state_alias)
-                                      }
-                                    })
+                              _vm.pageNumber > 0
+                                ? _c("li", { staticClass: "page-item" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "page-link",
+                                        attrs: { href: "#" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.prevPage.apply(
+                                              null,
+                                              arguments
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Anterior")]
+                                    )
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._l(_vm.pageList, function(page, index) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: index,
+                                    staticClass: "page-item",
+                                    class: [
+                                      page == _vm.pageNumber ? "active" : ""
+                                    ]
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "page-link",
+                                        attrs: { href: "#" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.selectPage(page)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(page + 1))]
+                                    )
                                   ]
-                                : [
-                                    _c("span", {
-                                      staticClass: "badge badge-danger",
-                                      domProps: {
-                                        textContent: _vm._s(item.state_alias)
-                                      }
-                                    })
-                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _vm.pageNumber < _vm.pageCount - 1
+                                ? _c("li", { staticClass: "page-item" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "page-link",
+                                        attrs: { href: "#" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.nextPage.apply(
+                                              null,
+                                              arguments
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Siguiente")]
+                                    )
+                                  ])
+                                : _vm._e()
                             ],
                             2
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "td",
-                            [
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "btn btn-primary btn-sm",
-                                  attrs: { to: "/" }
-                                },
-                                [
-                                  _c("i", { staticClass: "fas fa-folder" }),
-                                  _vm._v(" Ver\n                        ")
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "btn btn-info btn-sm",
-                                  attrs: { to: "/" }
-                                },
-                                [
-                                  _c("i", { staticClass: "fas fa-pencil-alt" }),
-                                  _vm._v(" Editar\n                        ")
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "btn btn-success btn-sm",
-                                  attrs: { to: "/" }
-                                },
-                                [
-                                  _c("i", { staticClass: "fas fa-key" }),
-                                  _vm._v(" Permiso\n                        ")
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "btn btn-danger btn-sm",
-                                  attrs: { to: "/" }
-                                },
-                                [
-                                  _c("i", { staticClass: "fas fa-trash" }),
-                                  _vm._v(
-                                    " Desactivar\n                        "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "btn btn-success btn-sm",
-                                  attrs: { to: "/" }
-                                },
-                                [
-                                  _c("i", { staticClass: "fas fa-check" }),
-                                  _vm._v(" Activar\n                        ")
-                                ]
-                              )
-                            ],
-                            1
                           )
                         ])
-                      }),
-                      0
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _vm._m(5)
-              ])
+                      ]
+                    : [_vm._m(5)]
+                ],
+                2
+              )
             ])
           ])
         ])
@@ -104743,32 +104929,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [_c("img", { attrs: { src: "", alt: "" } })])
+    return _c("td", [
+      _c("li", { staticClass: "user-block" }, [
+        _c("img", {
+          staticClass: "profile-avatar-img img-fluid img-circle",
+          attrs: { src: "/img/avatar.png", alt: "item.username" }
+        })
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer clearfix" }, [
-      _c("ul", { staticClass: "pagination pagination-sm m-0 float-right" }, [
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("Anterior")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item active" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("1")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("Siguiente")
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "callout callout-info" }, [
+      _c("h5", [_vm._v("No se encontraron resultados...")])
     ])
   }
 ]
