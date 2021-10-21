@@ -218,6 +218,12 @@ export default {
             }).then(response => {
                 console.log(response);
                 this.fullscreenLoading = false;
+                    Swal.fire({
+                    icon: 'success',
+                    title: 'Se actualizo el usuario correctamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
                 
             })
         },
