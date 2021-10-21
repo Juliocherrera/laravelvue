@@ -31,7 +31,14 @@
 .user-block {
     list-style: none !important;
 }
+.btnFull {
+    width: 100% !important;
+}
 
 .msgError{
     padding: 5px !important;
+}
+
+.imgTam{
+    width: 90px !important;
 }
