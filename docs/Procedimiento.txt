@@ -32,3 +32,11 @@ BEGIN
   /*RETORNAMOS*/
   SELECT @nIdFile AS nIdFile;
 END
+
+--- PROCEDIMIENTO PARA INSERTAR USUARIOS ---
+PARAMETROS TODOS LOS CAMPOS
+
+BEGIN
+  insert into users(firstname, secondname, lastname, username, email, password, file_id, state, created_by, updated_by, created_at)
+  VALUES(cprimernombre, csegundonombre, capellido, cusuario, ccorreo, ccontrasena, ofotografia, 'A', 1, 1, NOW());
+END

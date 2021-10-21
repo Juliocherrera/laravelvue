@@ -4146,6 +4146,7 @@ __webpack_require__.r(__webpack_exports__);
         oFotografia: ''
       },
       form: new FormData(),
+      fullscreenLoading: false,
       modalShow: false,
       mostrarModal: {
         display: 'block',
@@ -4160,6 +4161,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {},
   methods: {
+    limpiarCriterios: function limpiarCriterios() {
+      this.fillCrearUsuario.cPrimerNombre = '';
+      this.fillCrearUsuario.cSegundoNombre = '';
+      this.fillCrearUsuario.cApellido = '';
+      this.fillCrearUsuario.cUsuario = '';
+      this.fillCrearUsuario.cCorreo = '';
+      this.fillCrearUsuario.cContrasena = '';
+      this.fillCrearUsuario.oFotografia = '';
+    },
     abrirModal: function abrirModal() {
       this.modalShow = !this.modalShow;
     },
@@ -4168,17 +4178,22 @@ __webpack_require__.r(__webpack_exports__);
       this.fillCrearUsuario.oFotografia = e.target.files[0];
     },
     setRegistrarUsuario: function setRegistrarUsuario() {
-      //if (this.validarRegistrarUsuario()) {
-      //    this.modalShow = true;
-      //    return;
-      //}
+      if (this.validarRegistrarUsuario()) {
+        this.modalShow = true;
+        return;
+      }
+
+      this.fullscreenLoading = true;
+
       if (!this.fillCrearUsuario.oFotografia || this.fillCrearUsuario.oFotografia == undefined) {
-        this.setGuardarUsuario();
+        this.setGuardarUsuario(0);
       } else {
         this.setRegistrarArchivo();
       }
     },
     setRegistrarArchivo: function setRegistrarArchivo() {
+      var _this = this;
+
       this.form.append('file', this.fillCrearUsuario.oFotografia);
       var config = {
         headers: {
@@ -4188,6 +4203,28 @@ __webpack_require__.r(__webpack_exports__);
       var url = '/archivo/setRegistrarArchivo';
       axios.post(url, this.form, config).then(function (response) {
         console.log(response);
+        var nIdFile = response.data[0].nIdFile;
+
+        _this.setGuardarUsuario(nIdFile);
+      });
+    },
+    setGuardarUsuario: function setGuardarUsuario(nIdFile) {
+      var _this2 = this;
+
+      var url = '/administracion/usuario/setRegistrarUsuario';
+      axios.post(url, {
+        'cPrimerNombre': this.fillCrearUsuario.cPrimerNombre,
+        'cSegundoNombre': this.fillCrearUsuario.cSegundoNombre,
+        'cApellido': this.fillCrearUsuario.cApellido,
+        'cUsuario': this.fillCrearUsuario.cUsuario,
+        'cCorreo': this.fillCrearUsuario.cCorreo,
+        'cContrasena': this.fillCrearUsuario.cContrasena,
+        'oFotografia': nIdFile
+      }).then(function (response) {
+        console.log(response);
+        _this2.fullscreenLoading = false;
+
+        _this2.$router.push('/usuario');
       });
     },
     validarRegistrarUsuario: function validarRegistrarUsuario() {
@@ -4417,6 +4454,7 @@ __webpack_require__.r(__webpack_exports__);
         value: 'I',
         label: 'Inactivo'
       }],
+      fullscreenLoading: false,
       pageNumber: 0,
       perPage: 5
     };
@@ -4463,6 +4501,7 @@ __webpack_require__.r(__webpack_exports__);
     getListarUsuarios: function getListarUsuarios() {
       var _this = this;
 
+      this.fullscreenLoading = true;
       var url = '/administracion/usuario/getListarUsuarios';
       axios.get(url, {
         params: {
@@ -4476,6 +4515,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.inicializarPaginacion();
 
         _this.listUsuarios = response.data;
+        _this.fullscreenLoading = false;
       });
     },
     nextPage: function nextPage() {
@@ -105061,6 +105101,15 @@ var render = function() {
                     _c(
                       "button",
                       {
+                        directives: [
+                          {
+                            name: "loading",
+                            rawName: "v-loading.fullscreen.lock",
+                            value: _vm.fullscreenLoading,
+                            expression: "fullscreenLoading",
+                            modifiers: { fullscreen: true, lock: true }
+                          }
+                        ],
                         staticClass: "btn btn-flat btn-info btnWidth",
                         attrs: { type: "button" },
                         on: {
@@ -105084,10 +105133,7 @@ var render = function() {
                         on: {
                           click: function($event) {
                             $event.preventDefault()
-                            return _vm.limpiarCriteriosBsq.apply(
-                              null,
-                              arguments
-                            )
+                            return _vm.limpiarCriterios.apply(null, arguments)
                           }
                         }
                       },
@@ -105475,6 +105521,15 @@ var render = function() {
                     _c(
                       "button",
                       {
+                        directives: [
+                          {
+                            name: "loading",
+                            rawName: "v-loading.fullscreen.lock",
+                            value: _vm.fullscreenLoading,
+                            expression: "fullscreenLoading",
+                            modifiers: { fullscreen: true, lock: true }
+                          }
+                        ],
                         staticClass: "btn btn-flat btn-info btnWidth",
                         attrs: { type: "button" },
                         on: {

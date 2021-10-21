@@ -89,8 +89,8 @@
                 <div class="card-footer">
                   <div class="row">
                     <div class="col-md-4 offset-4">
-                      <button type="button" class="btn btn-flat btn-info btnWidth" @click.prevent="setRegistrarUsuario">Registrar</button>
-                      <button type="button" class="btn btn-flat btn-default btnWidth" @click.prevent="limpiarCriteriosBsq">Limpiar</button>
+                      <button type="button" class="btn btn-flat btn-info btnWidth" @click.prevent="setRegistrarUsuario" v-loading.fullscreen.lock="fullscreenLoading">Registrar</button>
+                      <button type="button" class="btn btn-flat btn-default btnWidth" @click.prevent="limpiarCriterios">Limpiar</button>
                     </div>
                   </div>
                 </div>
@@ -132,6 +132,7 @@ export default {
         oFotografia: ''
       },
       form: new FormData,
+      fullscreenLoading: false,
       modalShow: false,
       mostrarModal: {
           display: 'block',
@@ -147,6 +148,15 @@ export default {
     computed: {
     },
     methods: { 
+        limpiarCriterios(){
+            this.fillCrearUsuario.cPrimerNombre = '';
+            this.fillCrearUsuario.cSegundoNombre = '';
+            this.fillCrearUsuario.cApellido = '';
+            this.fillCrearUsuario.cUsuario = '';
+            this.fillCrearUsuario.cCorreo = '';
+            this.fillCrearUsuario.cContrasena = '';
+            this.fillCrearUsuario.oFotografia = '';
+        },
         abrirModal(){
             this.modalShow = !this.modalShow;
         },
@@ -155,12 +165,13 @@ export default {
             this.fillCrearUsuario.oFotografia = e.target.files[0]
         },
         setRegistrarUsuario(){
-            //if (this.validarRegistrarUsuario()) {
-            //    this.modalShow = true;
-            //    return;
-            //}
+            if (this.validarRegistrarUsuario()) {
+                this.modalShow = true;
+                return;
+            }
+            this.fullscreenLoading = true;
             if (!this.fillCrearUsuario.oFotografia || this.fillCrearUsuario.oFotografia == undefined) {
-                this.setGuardarUsuario();
+                this.setGuardarUsuario(0);
             } else {
                 this.setRegistrarArchivo();
             }
@@ -171,6 +182,24 @@ export default {
             var url = '/archivo/setRegistrarArchivo'
             axios.post(url, this.form, config).then(response =>{
                 console.log(response)
+                var nIdFile = response.data[0].nIdFile;
+                this.setGuardarUsuario(nIdFile);
+            })
+        },
+        setGuardarUsuario(nIdFile){
+            var url = '/administracion/usuario/setRegistrarUsuario'
+            axios.post(url, {
+                'cPrimerNombre': this.fillCrearUsuario.cPrimerNombre,
+                'cSegundoNombre': this.fillCrearUsuario.cSegundoNombre,
+                'cApellido': this.fillCrearUsuario.cApellido,
+                'cUsuario': this.fillCrearUsuario.cUsuario,
+                'cCorreo': this.fillCrearUsuario.cCorreo,
+                'cContrasena': this.fillCrearUsuario.cContrasena,
+                'oFotografia': nIdFile
+            }).then(response => {
+                console.log(response);
+                this.fullscreenLoading = false;
+                this.$router.push('/usuario');
             })
         },
         validarRegistrarUsuario(){

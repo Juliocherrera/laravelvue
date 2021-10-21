@@ -71,7 +71,7 @@
                 <div class="card-footer">
                   <div class="row">
                     <div class="col-md-4 offset-4">
-                      <button type="button" class="btn btn-flat btn-info btnWidth" @click.prevent="getListarUsuarios">Buscar</button>
+                      <button type="button" class="btn btn-flat btn-info btnWidth" @click.prevent="getListarUsuarios" v-loading.fullscreen.lock="fullscreenLoading">Buscar</button>
                       <button type="button" class="btn btn-flat btn-default btnWidth" @click.prevent="limpiarCriteriosBsq">Limpiar</button>
                     </div>
                   </div>
@@ -178,6 +178,7 @@ export default {
         {value: 'A', label: 'Activo'},
         {value: 'I', label: 'Inactivo'}
       ],
+      fullscreenLoading: false,
       pageNumber: 0,
       perPage: 5
     }
@@ -221,6 +222,7 @@ export default {
         this.listUsuarios = [];
       },
       getListarUsuarios(){
+        this.fullscreenLoading = true;
         var url = '/administracion/usuario/getListarUsuarios'
         axios.get(url, {
           params: {
@@ -233,6 +235,7 @@ export default {
           //console.log(response.data);
           this.inicializarPaginacion();
           this.listUsuarios = response.data;
+          this.fullscreenLoading = false;
         })
       },
       nextPage(){
