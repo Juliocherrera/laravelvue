@@ -1,6 +1,6 @@
 BEGIN
     SELECT usuario.id,
-    CONCAT_WS('', usuario.firstname, usuario,secondname, usuario.lastname) AS fullname,
+    CONCAT_WS('', usuario.firstname, usuario.secondname, usuario.lastname) AS fullname,
     usuario.firstname,
     usuario.secondname,
     usuario.lastname,
@@ -39,4 +39,115 @@ PARAMETROS TODOS LOS CAMPOS
 BEGIN
   insert into users(firstname, secondname, lastname, username, email, password, file_id, state, created_by, updated_by, created_at)
   VALUES(cprimernombre, csegundonombre, capellido, cusuario, ccorreo, ccontrasena, ofotografia, 'A', 1, 1, NOW());
+END
+
+--- PROCEDIMIENTO PARA EDITAR USUARIOS ---
+BEGIN
+  IF(csegundonombre = '' AND ccontrasena = '' AND ofotografia = 0)
+     THEN
+       UPDATE users
+       SET firstname = cprimernombre,
+           lastname = capellido,
+           username = cusuario,
+           email = ccorreo,
+           updated_by = 1,
+           updated_at = NOW()
+       WHERE id = nidusuario;
+  ELSE
+     IF(csegundonombre = '' AND ccontrasena = '')
+       THEN
+       UPDATE users
+       SET firstname = cprimernombre,
+           lastname = capellido,
+           username = cusuario,
+           email = ccorreo,
+           file_id = ofotografia,
+           updated_by = 1,
+           updated_at = NOW()
+       WHERE id = nidusuario;
+   ELSE
+     IF(csegundonombre = '' AND ofotografia = 0)
+       THEN
+       UPDATE users
+       SET firstname = cprimernombre,
+           lastname = capellido,
+           password = ccontrasena,
+           username = cusuario,
+           email = ccorreo,
+           file_id = ofotografia,
+           updated_by = 1,
+           updated_at = NOW()
+       WHERE id = nidusuario;
+   ELSE
+     IF(ccontrasena = '' AND ofotografia = 0)
+       THEN
+       UPDATE users
+       SET firstname = cprimernombre,
+           secondname = csegundonombre,
+           lastname = capellido,
+           username = cusuario,
+           email = ccorreo,
+           updated_by = 1,
+           updated_at = NOW()
+       WHERE id = nidusuario;
+       
+   ELSE
+     IF(csegundonombre = '')
+       THEN
+       UPDATE users
+       SET firstname = cprimernombre,
+           lastname = capellido,
+           password = ccontrasena,
+           file_id = ofotografia,
+           username = cusuario,
+           email = ccorreo,
+           updated_by = 1,
+           updated_at = NOW()
+       WHERE id = nidusuario;
+   ELSE
+     IF(ccontrasena = '')
+       THEN
+       UPDATE users
+       SET firstname = cprimernombre,
+           secondname = csegundonombre,
+           lastname = capellido,
+           file_id = ofotografia,
+           username = cusuario,
+           email = ccorreo,
+           updated_by = 1,
+           updated_at = NOW()
+       WHERE id = nidusuario;
+       
+    ELSE
+     IF(ofotografia = 0)
+       THEN
+       UPDATE users
+       SET firstname = cprimernombre,
+           secondname = csegundonombre,
+           lastname = capellido,
+           password = ccontrasena,
+           username = cusuario,
+           email = ccorreo,
+           updated_by = 1,
+           updated_at = NOW()
+       WHERE id = nidusuario;
+     ELSE
+       UPDATE users
+       SET firstname = cprimernombre,
+           secondname = csegundonombre,
+           lastname = capellido,
+           password = ccontrasena,
+           username = cusuario,
+           email = ccorreo,
+           file_id = ofotografia,
+           updated_by = 1,
+           updated_at = NOW()
+       WHERE id = nidusuario;
+         END IF;
+        END IF;
+       END IF;
+      END IF;
+     END IF;
+    END IF;
+   END IF;
 END

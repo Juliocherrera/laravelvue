@@ -15,6 +15,7 @@ export default new Router({
         { path: '/rol', component: require('./components/modulos/rol/index').default },
         { path: '/usuario', component: require('./components/modulos/usuario/index').default },
         { path: '/usuario/create', component: require('./components/modulos/usuario/create').default },
+        { path: '/usuario/editar/:id', name:'usuario.editar', component: require('./components/modulos/usuario/edit').default, props: true },
     ],
     mode: 'history',
     linkExactActiveClass: 'active'
