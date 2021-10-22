@@ -17,8 +17,11 @@ Route::get('/administracion/usuario/getListarUsuarios', 'App\Http\Controllers\Ad
 Route::post('/administracion/usuario/setRegistrarUsuario', 'App\Http\Controllers\Administracion\UsersController@setRegistrarUsuario');
 Route::post('/administracion/usuario/setEditarUsuario', 'App\Http\Controllers\Administracion\UsersController@setEditarUsuario');
 Route::post('/administracion/usuario/setCambiarEstadoUsuario', 'App\Http\Controllers\Administracion\UsersController@setCambiarEstadoUsuario');
+Route::get('/administracion/rol/getListarRoles', 'App\Http\Controllers\Administracion\RolesController@getListarUsuarios');
+Route::get('/administracion/rol/getListarPermisosByRol', 'App\Http\Controllers\Administracion\RolesController@getListarPermisosByRol');
+Route::post('/administracion/rol/setRegistrarRolPermisos', 'App\Http\Controllers\Administracion\RolesController@setRegistrarRolPermisos');
 
-Route::post('/archivo/setRegistrarArchivo', 'App\Http\Controllers\FilesController@setRegistrarArchivo');
+Route::post('/archivo/setRegistrarArchivo', 'App\Http\Controllers\RolesController@getListarRoles');
 
 Route::get('/{optional?}', function () {
     return view('app');
