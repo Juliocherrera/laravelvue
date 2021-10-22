@@ -14,6 +14,7 @@ export default new Router({
         { path: '/reporte', component: require('./components/modulos/reporte/index').default },
         { path: '/rol', component: require('./components/modulos/rol/index').default },
         { path: '/rol/crear', component: require('./components/modulos/rol/create').default },
+        { path: '/rol/editar/:id',name:'rol.editar', component: require('./components/modulos/rol/edit').default, props: true },
         { path: '/usuario', component: require('./components/modulos/usuario/index').default },
         { path: '/usuario/create', component: require('./components/modulos/usuario/create').default },
         { path: '/usuario/editar/:id', name:'usuario.editar', component: require('./components/modulos/usuario/edit').default, props: true },

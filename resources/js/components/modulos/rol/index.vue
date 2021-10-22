@@ -69,19 +69,19 @@
                       </tr>
                     </thead>
                     <tbody>
-                     <!-- <tr class="letraF" v-for="(item, index) in listarRolesPaginated" :key="index">
+                      <tr class="letraF" v-for="(item, index) in listarRolesPaginated" :key="index">
                        
                         <td v-text="item.name"></td>
                         <td v-text="item.slug"></td>
-                         <td>
+                         <td><!--  
                           <router-link class="btn btn-flat btn-primary btn-sm" :to="{name:'rol.ver', params:{id: item.id}}">
                              <i class="fas fa-folder"></i> Ver
-                          </router-link>
+                          </router-link>-->
                           <router-link class="btn btn-flatbtn-flat btn-info btn-sm" :to="{name:'rol.editar', params:{id: item.id}}">
                              <i class="fas fa-pencil-alt"></i> Editar
                           </router-link>
                         </td>
-                      </tr>-->
+                      </tr>
                     </tbody>
                   </table>
                   <div class="card-footer clearfix">
