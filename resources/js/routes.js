@@ -12,6 +12,7 @@ export default new Router({
         { path: '/permiso', component: require('./components/modulos/permiso/index').default },
         { path: '/permiso/crear', component: require('./components/modulos/permiso/create').default },
         { path: '/permiso/editar/:id',name:'permiso.editar', component: require('./components/modulos/permiso/edit').default, props: true },
+        
         { path: '/producto', component: require('./components/modulos/producto/index').default },
         { path: '/reporte', component: require('./components/modulos/reporte/index').default },
         { path: '/rol', component: require('./components/modulos/rol/index').default },
@@ -21,6 +22,7 @@ export default new Router({
         { path: '/usuario/create', component: require('./components/modulos/usuario/create').default },
         { path: '/usuario/editar/:id', name:'usuario.editar', component: require('./components/modulos/usuario/edit').default, props: true },
         { path: '/usuario/ver/:id', name:'usuario.ver', component: require('./components/modulos/usuario/view').default, props: true },
+        { path: '/usuario/permiso/:id',name:'usuario.permiso', component: require('./components/modulos/usuario/permission').default, props: true },
     ],
     mode: 'history',
     linkExactActiveClass: 'active'
