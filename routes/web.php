@@ -19,6 +19,10 @@ Route::post('/administracion/usuario/setEditarUsuario', 'App\Http\Controllers\Ad
 Route::post('/administracion/usuario/setCambiarEstadoUsuario', 'App\Http\Controllers\Administracion\UsersController@setCambiarEstadoUsuario');
 Route::post('/administracion/usuario/setEditarRolByUsuario', 'App\Http\Controllers\Administracion\UsersController@setEditarRolByUsuario');
 Route::get('/administracion/usuario/getRolByUsuario', 'App\Http\Controllers\Administracion\UsersController@getRolByUsuario');
+Route::get('/administracion/usuario/getListarPermisosByRolAsignado', 'App\Http\Controllers\Administracion\UsersController@getListarPermisosByRolAsignado');
+Route::get('/administracion/usuario/getListarPermisosByUsuarioAsignado', 'App\Http\Controllers\Administracion\UsersController@getListarPermisosByUsuarioAsignado');
+Route::post('/administracion/usuario/setRegistrarPermisosByUsuario', 'App\Http\Controllers\Administracion\UsersController@setRegistrarPermisosByUsuario');
+Route::get('/administracion/usuario/getListarPermisosByUsuario', 'App\Http\Controllers\Administracion\UsersController@getListarPermisosByUsuario');
 
 Route::get('/administracion/rol/getListarRoles', 'App\Http\Controllers\Administracion\RolesController@getListarRoles');
 Route::get('/administracion/rol/getListarPermisosByRol', 'App\Http\Controllers\Administracion\RolesController@getListarPermisosByRol');
