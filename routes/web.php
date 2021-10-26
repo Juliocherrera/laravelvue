@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/authenticate/login', 'App\Http\Controllers\Auth\LoginController@login');
+Route::post('/authenticate/logout', 'App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/authenticate/getRefrescarUsuarioAutenticado', function () {
+  return Auth::user()->load('file');
+});
 
 Route::get('/administracion/usuario/getListarUsuarios', 'App\Http\Controllers\Administracion\UsersController@getListarUsuarios');
 Route::post('/administracion/usuario/setRegistrarUsuario', 'App\Http\Controllers\Administracion\UsersController@setRegistrarUsuario');
